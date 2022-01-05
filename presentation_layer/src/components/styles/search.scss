@@ -1,0 +1,26 @@
+
+.search{
+    width: 300px;
+    height: 40px;
+    display: flex;
+    padding-top: 20px;
+    margin-left: 37%;
+    margin-right: 37%;
+  }
+  
+  .block{
+    height: 90px;
+    display: flexbox;
+  }
+
+.search_button{
+  outline: none;
+  border: 0;
+  background: transparent;
+}
+
+.input_city{
+  width: 300px;
+  height: 35px;
+  border: 2px solid rgb(190, 190, 186);
+}

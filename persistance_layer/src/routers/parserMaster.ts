@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import ThemeARouter from './router';
+import Subrouter from './router';
 
-class MasterRouter {
+class ParserMaster {
   private _router = Router();
-  private _subrouterA = ThemeARouter;
+  private _subrouter = Subrouter;
 
   get router() {
     return this._router;
@@ -14,8 +14,8 @@ class MasterRouter {
   }
 
   private _configure() {
-    this._router.use('/themeA', this._subrouterA);
+    this._router.use(`/weather`, this._subrouter);
   }
 }
 
-export = new MasterRouter().router;
+export = new ParserMaster().router;

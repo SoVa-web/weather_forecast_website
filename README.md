@@ -5,6 +5,10 @@ Start page layout: https://www.figma.com/file/E2KPRyrInFOsSyBOoRx99C/Untitled?no
 
 
 The APIs of these sites are used to extract and aggregate data:
-- https://www.gismeteo.ua/ua/api/
+- https://www.gismeteo.ua/ua/api/ (needs write email to support)
 - https://openweathermap.org/api 
-- 
+- http://www.wunderground.com/weather/api/ 
+- http://www.weather.ua/services/xml/
+- https://api.accuweather.com/ 
+
+Author of weather pack icons: https://www.flaticon.com/ru/authors/linector , https://www.flaticon.com/ru/packs/weather-forecast

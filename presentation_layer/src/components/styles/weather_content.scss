@@ -1,0 +1,74 @@
+.block-weather{
+    height: 600px;
+}
+
+.weather-content{
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    height: 500px;
+    background-color: #FFFEFE;
+    border-radius: 26px;
+    align-items: center;
+}
+
+.today, .week{
+    height: 50px;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.411);
+    font-family: 'Playball', cursive;
+    font-size: 30px;
+    border: 1px solid;
+    border-color: rgb(190, 190, 186);
+}
+
+
+.today, .week{
+    width: 50%;
+}
+
+.today{
+    border-radius: 26px 0 0 0;
+}
+
+.week{
+    border-radius: 0 26px 0 0;
+}
+
+
+.todayItems{
+    margin: 0;
+    padding: 0;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: 1fr;
+    align-items: center;
+    text-align: center;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.weekItems{
+    margin: 0;
+    padding: 0;
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: 1fr;
+    align-items: center;
+    text-align: center;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.adv{
+    color: rgba(0, 0, 0, 0.411);
+    font-family: 'Playball', cursive;
+    font-size: 25px;
+}
+
+.motto{
+    color: rgba(0, 0, 0, 0.089);
+    font-family: 'Playball', cursive;
+    font-size: 70px;
+    padding-top: 20px;
+}
