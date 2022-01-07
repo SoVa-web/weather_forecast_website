@@ -5,13 +5,17 @@ import sun from '../data/icon/sun.png'
 import snow from '../data/icon/snow.png'
 import rain from '../data/icon/rain.png'
 import cloudy from '../data/icon/cloudy.png'
+import moon_cloudy from '../data/icon/moon_cloudy.png'
+import moon from '../data/icon/moon.png'
 import WeatherItem from "./weather_item";
 
 const map_alias = new Map<string, string>([
     ["sun", sun],
     ["snow", snow],
     ["cloudy", cloudy],
-    ["rain", rain]
+    ["rain", rain],
+    ["moon", moon],
+    ["moon_cloudy", moon_cloudy]
 ]);
 
 function get_data (time:string){

@@ -12,3 +12,4 @@ The APIs of these sites are used to extract and aggregate data:
 - https://api.accuweather.com/ 
 
 Author of weather pack icons: https://www.flaticon.com/ru/authors/linector , https://www.flaticon.com/ru/packs/weather-forecast
+https://www.freepik.com
