@@ -1,12 +1,28 @@
 import FetchBuilder from "./parser_providers";
 
 
-async function agregation(city:string){
-    const fetch_builder = new FetchBuilder(city);
-    const result = await fetch_builder.fetch_consructor("provider1").then(f1 => {
-        return f1});
-    console.log(result)
-    return await result;
+const common_object = {
+
 }
 
- export default agregation;
+async function Agregator(city:string){
+    console.time('FirstWay');
+    const fetch_builder = new FetchBuilder(city);
+    let arr_keys = ["provider1", "provider2", "provider3", "provider4"]
+   try{
+    const res = await Promise.all(arr_keys.map(key => fetch_builder.fetch_consructor(key)))
+    console.timeEnd('FirstWay');
+    return res;
+   }catch(err){
+       console.log(err)
+       return {};
+   }
+}
+
+
+function agregation(){
+
+}
+
+
+export default Agregator;

@@ -33,8 +33,8 @@ const search_method = async  ()=>{
         body: JSON.stringify({city:in_text})
     })
     .then(response => {
-       return response
+       return response.json()
     })
-    .then(obj => console.log(obj))//there shoud be adding to the localStorage
+    .then(obj => console.log(obj))
 }
 export default Search

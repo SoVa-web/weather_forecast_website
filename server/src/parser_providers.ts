@@ -1,10 +1,8 @@
 import fetch from 'cross-fetch';
 import dotenv from 'dotenv'
-import NODE_TOKEN from 'process'
 
 dotenv.config()
 
-const token_open_weather = process.env.NODE_TOKEN
 
 class FetchBuilder { 
     public city_fetch:string
@@ -13,27 +11,25 @@ class FetchBuilder {
     constructor(city:string) {
         this.city_fetch = city
         this.map_url = new Map([
-            ["provider1", `https://api.openweathermap.org/data/2.5/forecast?q=London&appid=${token_open_weather}`]
+            ["provider1", `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/today?unitGroup=metric&include=hours&key=${process.env.NODE_VISUALAPI}&contentType=json`],
+            ["provider2", `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/next7days?unitGroup=metric&include=days&key=${process.env.NODE_VISUALAPI}&contentType=json`],
+            ["provider3", `http://api.weatherapi.com/v1/forecast.json?key=${process.env.NODE_TOKEN_WEATHERAPI}&q=${city}&days=1&aqi=no&alerts=yes`],
+            ["provider4", `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&key=${process.env.NODE_TOKEN_WEATHERBIT}`],
+
         ])
     }
 
-
     async fetch_consructor(provider_link:string){
         const link:string|undefined = this.map_url.get(provider_link)
-        const b = process.env.NODE_TOKEN
-        console.log(b)
+        console.log(process.env.NODE_TOKEN_ACCUWEATHER)
         if (link != undefined){
             const obj = await fetch(link, 
                 {
                     mode:'cors'
                 })
-            const b = await obj.json()
-            //console.log(b)
-            return b
+            return await obj.json()
         }
     }
-   
-
 }
 
 export default FetchBuilder;
