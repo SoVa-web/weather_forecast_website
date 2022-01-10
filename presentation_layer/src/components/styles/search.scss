@@ -1,16 +1,18 @@
 
 .search{
-    width: 300px;
+    width: 150px;
     height: 40px;
     display: flex;
     padding-top: 20px;
-    margin-left: 37%;
-    margin-right: 37%;
+    text-align: center;
   }
   
   .block{
     height: 90px;
     display: flexbox;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 25px;
   }
 
 .search_button{
@@ -23,4 +25,10 @@
   width: 300px;
   height: 35px;
   border: 2px solid rgb(190, 190, 186);
+}
+
+#city_name{
+    color: rgba(0, 0, 0, 0.753);
+    font-family: 'Playball', cursive;
+    font-size: 30px;
 }

@@ -6,6 +6,7 @@ import Footer from './footer';
 import Search from './search';
 import WeatherContent from './weather_content'
 
+
 function ContentPage() {
   return (
     <div className='content' id='content'>

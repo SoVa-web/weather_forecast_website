@@ -90,12 +90,14 @@ class ParserWeatherAPIDay extends Parser{
 
     async parser(obj: any):Promise<object|undefined> {
         let pars_obj = JSON.parse(JSON.stringify(common_object))
-        for(let i = 0; i < obj.forecast.forecastday[0].hour.length; i++){
-            let datetime = obj.forecast.forecastday[0].hour[i].time
-            let time = datetime.substring(datetime.length - 5) + ":00"
-            if(pars_obj.weather_today[time] != undefined){
-                pars_obj.weather_today[time].air_temp = obj.forecast.forecastday[0].hour[i].temp_c
-                pars_obj.weather_today[time].img = def_icon(obj.forecast.forecastday[0].hour[i].condition.text)
+        if (obj.forecast !== undefined){
+            for(let i = 0; i < obj.forecast.forecastday[0].hour.length; i++){
+                let datetime = obj.forecast.forecastday[0].hour[i].time
+                let time = datetime.substring(datetime.length - 5) + ":00"
+                if(pars_obj.weather_today[time] != undefined){
+                    pars_obj.weather_today[time].air_temp = obj.forecast.forecastday[0].hour[i].temp_c
+                    pars_obj.weather_today[time].img = def_icon(obj.forecast.forecastday[0].hour[i].condition.text)
+                }
             }
         }
         return pars_obj;

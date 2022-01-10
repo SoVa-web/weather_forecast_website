@@ -31,11 +31,11 @@ function agregation(arr: any){
     let arr_hour = Object.keys(obj.weather_today)
     let arr_days = Object.keys(obj.weather_week)
     for(let i = 0; i < (arr_hour.length -1); i++){
-        obj.weather_today[arr_hour[i]].air_temp = avr_temp_today(arr, arr_hour, i)?.toFixed(1)
+        obj.weather_today[arr_hour[i]].air_temp = avr_temp_today(arr, arr_hour, i)?.toFixed(1) + "°C"
         obj.weather_today[arr_hour[i]].img = avr_item_icon_today(arr, arr_hour, i)
     }
     for(let i = 0; i < arr_days.length; i++){
-        obj.weather_week[arr_days[i]].air_temp = avr_temp_week(arr, arr_days, i)?.toFixed(1)
+        obj.weather_week[arr_days[i]].air_temp = avr_temp_week(arr, arr_days, i)?.toFixed(1) + "°C"
         obj.weather_week[arr_days[i]].img = avr_item_icon_week(arr, arr_days, i)
         obj.weather_week[arr_days[i]].data = get_data_week(arr, arr_days, i)
     }
