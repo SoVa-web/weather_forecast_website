@@ -2,6 +2,8 @@ import React from 'react';
 import './styles/search.scss';
 import fetch from 'cross-fetch'
 import magnifier from '../data/icon/magnifier.png'
+import config from '../config';
+
 
 function Search(){
     return(
@@ -35,6 +37,23 @@ const search_method = async  ()=>{
     .then(response => {
        return response.json()
     })
-    .then(obj => console.log(obj))
+    .then(obj => {
+        console.log(obj)
+        if (Object.keys(obj).length !== 0){
+            add_html_pred()
+            if (localStorage.getItem(config.key_local_storage) != null){
+                localStorage.removeItem(config.key_local_storage)
+                localStorage.setItem(config.key_local_storage, JSON.stringify(obj))
+            }
+            else localStorage.setItem(config.key_local_storage, JSON.stringify(obj))
+        } 
+    })
 }
+
+
+function add_html_pred(){
+    
+}
+        
+
 export default Search

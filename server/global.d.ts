@@ -5,5 +5,6 @@ namespace NodeJS {
       NODE_TOKEN_WEATHERBIT: string;
       NODE_TOKEN_ACCU: string;
       NODE_VISUALAPI: string;
+      NODE_MORNING_TIME: number;
     }
   }
