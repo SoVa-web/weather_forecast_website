@@ -10,7 +10,6 @@ async function Agregator(city:string){
     const arr_keys = Array.from(fetch_builder.map_url.keys());
     let res:any;
     try{ 
-        console.time('FirstWay');
         res = await Promise.all( 
             arr_keys.map(key => fetch_builder.fetch_consructor(key))
         )
@@ -18,7 +17,6 @@ async function Agregator(city:string){
         let result = []
         for(let i = 0; i < res.length; i++) result.push(await ch.chain(arr_keys[i], res[i]).then(f => {return f}))
         let created_pred = agregation(result)
-        console.timeEnd('FirstWay');
         return created_pred;
     }catch(err){
         console.log(err)
@@ -33,13 +31,42 @@ function agregation(arr: any){
     for(let i = 0; i < (arr_hour.length -1); i++){
         obj.weather_today[arr_hour[i]].air_temp = avr_temp_today(arr, arr_hour, i)?.toFixed(1) + "°C"
         obj.weather_today[arr_hour[i]].img = avr_item_icon_today(arr, arr_hour, i)
+        obj.weather_today[arr_hour[i]].speed_wind = avr_speed_wind_today(arr, arr_hour, i)?.toFixed(1) + "m/s"
     }
     for(let i = 0; i < arr_days.length; i++){
         obj.weather_week[arr_days[i]].air_temp = avr_temp_week(arr, arr_days, i)?.toFixed(1) + "°C"
         obj.weather_week[arr_days[i]].img = avr_item_icon_week(arr, arr_days, i)
         obj.weather_week[arr_days[i]].data = get_data_week(arr, arr_days, i)
+        obj.weather_week[arr_days[i]].speed_wind = avr_speed_wind_week(arr, arr_days, i)?.toFixed(1) + "m/s"
     }
     return obj;
+}
+
+
+function avr_speed_wind_week(arr: any, arr_week: Array<string>, i: number){
+    let sum:number = 0
+    let count: number = 0
+    for(let j = 0; j < arr.length; j++){
+      if (arr[j].weather_week[arr_week[i]].speed_wind !== ""){
+        sum += arr[j].weather_week[arr_week[i]].speed_wind
+        count += 1
+      }
+    }
+    if (sum == 0) return null;
+    return sum/count
+}
+
+function avr_speed_wind_today(arr: any, arr_hour: Array<string>, i: number){
+    let sum:number = 0
+    let count: number = 0
+    for(let j = 0; j < arr.length; j++){
+      if (arr[j].weather_today[arr_hour[i]].speed_wind !== ""){
+        sum += arr[j].weather_today[arr_hour[i]].speed_wind
+        count += 1
+      }
+    }
+    if (sum == 0) return null;
+    return sum/count
 }
 
 function get_data_week(arr: any, arr_days: Array<string>, i: number){

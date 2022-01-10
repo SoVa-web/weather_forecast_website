@@ -3,35 +3,43 @@ let common_object = {
     "weather_today":{
         "03:00:00":{
             "img":"",
-            "air_temp":""
+            "air_temp":"",
+            "speed_wind":""
         },
         "06:00:00":{
             "img":"",
-            "air_temp":""
+            "air_temp":"",
+            "speed_wind":""
         },
         "09:00:00":{
             "img":"",
-            "air_temp":""
+            "air_temp":"",
+            "speed_wind":""
         },
         "12:00:00":{
             "img":"",
-            "air_temp":""
+            "air_temp":"",
+            "speed_wind":""
         },
         "15:00:00":{
             "img":"",
-            "air_temp":""
+            "air_temp":"",
+            "speed_wind":""
         },
         "18:00:00":{
             "img":"",
-            "air_temp":""
+            "air_temp":"",
+            "speed_wind":""
         },
         "21:00:00":{
             "img":"",
-            "air_temp":""
+            "air_temp":"",
+            "speed_wind":""
         },
         "00:00:00":{
             "img":"",
-            "air_temp":""
+            "air_temp":"",
+            "speed_wind":""
         },
         "today_advice":""
     },
@@ -39,37 +47,44 @@ let common_object = {
         "first_day":{
             "data":"",
             "img":"",
-            "air_temp":""
+            "air_temp":"",
+            "speed_wind":""
         },
         "second_day":{
             "data":"",
             "img":"",
-            "air_temp":""
+            "air_temp":"",
+            "speed_wind":""
         },
         "three_day":{
             "data":"",
             "img":"",
-            "air_temp":""
+            "air_temp":"",
+            "speed_wind":""
         },
         "four_day":{
             "data":"",
             "img":"",
-            "air_temp":""
+            "air_temp":"",
+            "speed_wind":""
         },
         "five_day":{
             "data":"",
             "img":"",
-            "air_temp":""
+            "air_temp":"",
+            "speed_wind":""
         },
         "six_day":{
             "data":"",
             "img":"",
-            "air_temp":""
+            "air_temp":"",
+            "speed_wind":""
         },
         "seven_day":{
             "data":"",
             "img":"",
-            "air_temp":""
+            "air_temp":"",
+            "speed_wind":""
         }
     }
 }

@@ -4,14 +4,16 @@ import './styles/weather_item.scss';
 interface WeatherItemProps{
     time:string,
     name_icon:string|undefined,
-    air_temp:string
+    air_temp:string,
+    speed_wind:string
 }
 
 const WeatherItem: React.FC<WeatherItemProps> = (
     {
         time,
         name_icon,
-        air_temp
+        air_temp,
+        speed_wind
     }
 )=>{
     return(
@@ -25,6 +27,10 @@ const WeatherItem: React.FC<WeatherItemProps> = (
             <div>
                 <p>{air_temp}</p>
             </div>
+            <div>
+                <p>{speed_wind}</p>
+            </div>
+
         </div>
        
     );

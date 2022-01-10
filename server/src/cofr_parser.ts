@@ -57,6 +57,7 @@ class ParserVisualDay extends Parser{
             if(pars_obj.weather_today[datetime] != undefined){
                 pars_obj.weather_today[datetime].air_temp = obj.days[0].hours[i].temp
                 pars_obj.weather_today[datetime].img = def_icon(obj.days[0].hours[i].icon)
+                if (obj.days[0].hours[i].windspeed !== null) pars_obj.weather_today[datetime].speed_wind = (parseFloat(obj.days[0].hours[i].windspeed) * 1000)/3600 //from kph to mps
             }
         }
         return pars_obj; 
@@ -76,6 +77,7 @@ class ParserVisualWeek extends Parser{
             pars_obj.weather_week[week_keys[i]].data = def_date(obj.days[i].datetime)
             pars_obj.weather_week[week_keys[i]].air_temp = obj.days[i].temp
             pars_obj.weather_week[week_keys[i]].img = def_icon(obj.days[i].icon)
+            if (obj.days[i].windspeed !== null) pars_obj.weather_week[week_keys[i]].speed_wind = (parseFloat(obj.days[i].windspeed)*1000)/3600 //from kph to mps
         }
         return pars_obj; 
     }
@@ -97,6 +99,7 @@ class ParserWeatherAPIDay extends Parser{
                 if(pars_obj.weather_today[time] != undefined){
                     pars_obj.weather_today[time].air_temp = obj.forecast.forecastday[0].hour[i].temp_c
                     pars_obj.weather_today[time].img = def_icon(obj.forecast.forecastday[0].hour[i].condition.text)
+                    if (obj.forecast.forecastday[0].hour[i].wind_kph !== null) pars_obj.weather_today[time].speed_wind = (parseFloat(obj.forecast.forecastday[0].hour[i].wind_kph)*1000)/3600 //from kph to mps
                 }
             }
         }
@@ -117,6 +120,7 @@ class ParserWeatherbitWeek extends Parser{
             pars_obj.weather_week[week_keys[i]].air_temp = obj.data[i].temp
             pars_obj.weather_week[week_keys[i]].img = def_icon(obj.data[i].weather.icon[0])
             if (obj.data[i].weather.icon == "c01d") pars_obj.weather_week[week_keys[i]].img = "clear"
+            if(obj.data[i].wind_spd !== null) pars_obj.weather_week[week_keys[i]].speed_wind = obj.data[i].wind_spd 
         }
         return pars_obj;
     }
