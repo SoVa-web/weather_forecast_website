@@ -12,7 +12,7 @@ function Search(){
         <div className='block'>
             <div className='search'>
                     <input id="input_city" className='input_city'  type="text" placeholder='Enter name a region...'/>
-                    <button className='search_button' onClick={search_method}>
+                    <button className='search_button' onClick={onclick_serch}>
                         <img  style={{width:"30px", height:"30px", cursor:'pointer'}} src={magnifier} alt='search'></img>
                     </button>
             </div>
@@ -23,6 +23,9 @@ function Search(){
 }
 
 
+async function onclick_serch(){
+    await search_method()
+}
 
 
 const search_method = async  ()=>{
@@ -45,7 +48,7 @@ const search_method = async  ()=>{
     .then(response => {
        return response.json()
     })
-    .then(obj => {
+    .then(async (obj) => {
         console.log(obj)
         if (Object.keys(obj).length !== 0){
             if (localStorage.getItem(config.key_local_storage) != null){
@@ -63,7 +66,7 @@ const search_method = async  ()=>{
 
 
 function onclickToday(){
-    setTimeout(showTodayWeater, 1000)
+    setTimeout(showTodayWeater, 1500)
 }
 
 

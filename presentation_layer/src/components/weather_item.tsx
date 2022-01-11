@@ -22,22 +22,22 @@ const WeatherItem: React.FC<WeatherItemProps> = (
 )=>{
     return(
         <div>
-            <div>
+            <div className='item' >
                 <p>{time}</p>
             </div>
             <div>
                 <img style={{width:"30px", height:"30px", cursor:'pointer', margin:'0'}} src={name_icon} alt={name_icon}></img>
             </div>
-            <div>
-                <p>{air_temp}</p>
+            <div className='item'>
+                <p >{air_temp}</p>
             </div>
-            <div>
+            <div className='item'>
                 <p>{speed_wind}</p>
             </div>
-            <div>
+            <div className='item'>
                 <p>{humidity}</p>
             </div>
-            <div>
+            <div className='item'>
                 <p>{prob}</p>
             </div>
         </div>

@@ -6,22 +6,22 @@ const DescriptionItem = ()=>{
     return(
         <div>
             <div>
-                <p>Descr.</p>
+                <p className='item'>Descr.</p>
             </div>
             <div>
-                <p>-</p>
+                <p className='item'>-</p>
             </div>
             <div>
-                <p>Temp.</p>
+                <p className='item'>Temp.</p>
             </div>
             <div>
-                <p>Wind</p>
+                <p className='item'>Wind</p>
             </div>
             <div>
-                <p>Humd.</p>
+                <p className='item'>Humd.</p>
             </div>
             <div>
-                <p>Prob.</p>
+                <p className='item'>Prob.</p>
             </div>
         </div>
        

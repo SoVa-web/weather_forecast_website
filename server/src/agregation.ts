@@ -3,7 +3,11 @@ import FetchBuilder from "./fetch_builder";
 import common_object from './template_obj';
 import ChainOfResponsibility from './cofr_parser'
 
-const MORNING_TIME: number = 6
+const MORNING_TIME: number = 6;
+const FOG = `Fog and limited visibility are expected. Be careful.`;
+const STORM  = `Storm warning. Perhaps with a downpour.`;
+const HIGH_TEMP = `High temperature is dangerous for human health. People with chronic heart disease should refrain from being outside.`
+const NICE_DAY = "It`s a nice day! It`s time for big things to do!"
 
 async function Agregator(city:string){
     const fetch_builder = new FetchBuilder(city);
@@ -29,20 +33,43 @@ export function agregation(arr: any){
     let arr_hour = Object.keys(obj.weather_today)
     let arr_days = Object.keys(obj.weather_week)
     for(let i = 0; i < (arr_hour.length -1); i++){
-        obj.weather_today[arr_hour[i]].air_temp = avr_temp_today(arr, arr_hour, i)?.toFixed(1) + "°C"
+        obj.weather_today[arr_hour[i]].air_temp = avr_temp_today(arr, arr_hour, i)?.toFixed(1) + " °C"
         obj.weather_today[arr_hour[i]].img = avr_item_icon_today(arr, arr_hour, i)
-        obj.weather_today[arr_hour[i]].speed_wind = avr_speed_wind_today(arr, arr_hour, i)?.toFixed(1) + "m/s"
-        obj.weather_today[arr_hour[i]].humidity = avr_humidity_today(arr, arr_hour, i)?.toFixed(1) + "%"
+        obj.weather_today[arr_hour[i]].speed_wind = avr_speed_wind_today(arr, arr_hour, i)?.toFixed(1) + " m/s"
+        obj.weather_today[arr_hour[i]].humidity = avr_humidity_today(arr, arr_hour, i)?.toFixed(1) + " %"
     }
     for(let i = 0; i < arr_days.length; i++){
-        obj.weather_week[arr_days[i]].air_temp = avr_temp_week(arr, arr_days, i)?.toFixed(1) + "°C"
+        obj.weather_week[arr_days[i]].air_temp = avr_temp_week(arr, arr_days, i)?.toFixed(1) + " °C"
         obj.weather_week[arr_days[i]].img = avr_item_icon_week(arr, arr_days, i)
         obj.weather_week[arr_days[i]].data = get_data_week(arr, arr_days, i)
-        obj.weather_week[arr_days[i]].speed_wind = avr_speed_wind_week(arr, arr_days, i)?.toFixed(1) + "m/s"
-        if (avr_humidity_week(arr, arr_days, i)) obj.weather_week[arr_days[i]].humidity = avr_humidity_week(arr, arr_days, i)?.toFixed(1) + "%"
-        if (avr_prob_week(arr, arr_days, i)) obj.weather_week[arr_days[i]].prob = avr_prob_week(arr, arr_days, i)?.toFixed(1) + "%"
+        obj.weather_week[arr_days[i]].speed_wind = avr_speed_wind_week(arr, arr_days, i)?.toFixed(1) + " m/s"
+        if (avr_humidity_week(arr, arr_days, i)) obj.weather_week[arr_days[i]].humidity = avr_humidity_week(arr, arr_days, i)?.toFixed(1) + " %"
+        if (avr_prob_week(arr, arr_days, i)) obj.weather_week[arr_days[i]].prob = avr_prob_week(arr, arr_days, i)?.toFixed(1) + " %"
     }
+    obj = generate_advice(obj, arr_hour);
     return obj;
+}
+
+function generate_advice(obj:any, arr_hour:any){
+  let str_advice = NICE_DAY
+  
+  for (let i = 0; i < (arr_hour.length -1); i++){
+    if ( obj.weather_today[arr_hour[i]].air_temp !== null && obj.weather_today[arr_hour[i]].air_temp && obj.weather_today[arr_hour[i]].air_temp !== ""){
+      let t:number = obj.weather_today[arr_hour[i]].air_temp.substring(0, obj.weather_today[arr_hour[i]].air_temp.length - 2)
+      if (t > 30){ //30°C is the most comfortable temp for people
+        
+        str_advice = HIGH_TEMP
+      }
+    }
+    if(obj.weather_today[arr_hour[i]].img === "fog"){
+      str_advice = FOG
+    }
+    if(obj.weather_today[arr_hour[i]].img === "storm"){
+      str_advice = STORM
+    }
+  }
+  obj.weather_today.today_advice = str_advice
+  return obj;
 }
 
 function avr_prob_week(arr: any, arr_week: Array<string>, i: number){
