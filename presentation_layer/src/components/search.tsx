@@ -33,7 +33,7 @@ const search_method = async  ()=>{
     ReactDom.render(<p>{city_name_en}</p>,document.getElementById('city_name'))
 
     
-    await fetch(`http://localhost:5000/`, {
+    await fetch(`https://weathersovaappp.herokuapp.com/`, {
         mode: 'cors',
         method: 'POST',
         headers: {
