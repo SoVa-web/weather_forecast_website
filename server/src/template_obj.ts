@@ -4,42 +4,58 @@ let common_object = {
         "03:00:00":{
             "img":"",
             "air_temp":"",
-            "speed_wind":""
+            "speed_wind":"",
+            "humidity":"",
+            "prob":""
         },
         "06:00:00":{
             "img":"",
             "air_temp":"",
-            "speed_wind":""
+            "speed_wind":"",
+            "humidity":"",
+            "prob":""
         },
         "09:00:00":{
             "img":"",
             "air_temp":"",
-            "speed_wind":""
+            "speed_wind":"",
+            "humidity":"",
+            "prob":""
         },
         "12:00:00":{
             "img":"",
             "air_temp":"",
-            "speed_wind":""
+            "speed_wind":"",
+            "humidity":"",
+            "prob":""
         },
         "15:00:00":{
             "img":"",
             "air_temp":"",
-            "speed_wind":""
+            "speed_wind":"",
+            "humidity":"",
+            "prob":""
         },
         "18:00:00":{
             "img":"",
             "air_temp":"",
-            "speed_wind":""
+            "speed_wind":"",
+            "humidity":"",
+            "prob":""
         },
         "21:00:00":{
             "img":"",
             "air_temp":"",
-            "speed_wind":""
+            "speed_wind":"",
+            "humidity":"",
+            "prob":""
         },
         "00:00:00":{
             "img":"",
             "air_temp":"",
-            "speed_wind":""
+            "speed_wind":"",
+            "humidity":"",
+            "prob":""
         },
         "today_advice":""
     },
@@ -48,43 +64,57 @@ let common_object = {
             "data":"",
             "img":"",
             "air_temp":"",
-            "speed_wind":""
+            "speed_wind":"",
+            "humidity":"",
+            "prob":""
         },
         "second_day":{
             "data":"",
             "img":"",
             "air_temp":"",
-            "speed_wind":""
+            "speed_wind":"",
+            "humidity":"",
+            "prob":""
         },
         "three_day":{
             "data":"",
             "img":"",
             "air_temp":"",
-            "speed_wind":""
+            "speed_wind":"",
+            "humidity":"",
+            "prob":""
         },
         "four_day":{
             "data":"",
             "img":"",
             "air_temp":"",
-            "speed_wind":""
+            "speed_wind":"",
+            "humidity":"",
+            "prob":""
         },
         "five_day":{
             "data":"",
             "img":"",
             "air_temp":"",
-            "speed_wind":""
+            "speed_wind":"",
+            "humidity":"",
+            "prob":""
         },
         "six_day":{
             "data":"",
             "img":"",
             "air_temp":"",
-            "speed_wind":""
+            "speed_wind":"",
+            "humidity":"",
+            "prob":""
         },
         "seven_day":{
             "data":"",
             "img":"",
             "air_temp":"",
-            "speed_wind":""
+            "speed_wind":"",
+            "humidity":"",
+            "prob":""
         }
     }
 }

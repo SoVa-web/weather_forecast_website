@@ -21,13 +21,18 @@ class FetchBuilder {
 
     async fetch_consructor(provider_link:string){
         const link:string|undefined = this.map_url.get(provider_link)
-        console.log(process.env.NODE_TOKEN_ACCUWEATHER)
         if (link != undefined){
-            const obj = await fetch(link, 
-                {
-                    mode:'cors'
-                })
-            return await obj.json()
+            try{
+                const obj = await fetch(link, 
+                    {
+                        mode:'cors'
+                    })
+                return await obj.json()
+            }
+            catch(err){
+                console.log(err)
+                return {}
+            }
         }
     }
 }

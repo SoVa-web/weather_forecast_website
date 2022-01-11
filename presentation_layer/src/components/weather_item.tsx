@@ -5,7 +5,9 @@ interface WeatherItemProps{
     time:string,
     name_icon:string|undefined,
     air_temp:string,
-    speed_wind:string
+    speed_wind:string,
+    humidity:string,
+    prob:string
 }
 
 const WeatherItem: React.FC<WeatherItemProps> = (
@@ -13,7 +15,9 @@ const WeatherItem: React.FC<WeatherItemProps> = (
         time,
         name_icon,
         air_temp,
-        speed_wind
+        speed_wind,
+        humidity,
+        prob
     }
 )=>{
     return(
@@ -30,7 +34,12 @@ const WeatherItem: React.FC<WeatherItemProps> = (
             <div>
                 <p>{speed_wind}</p>
             </div>
-
+            <div>
+                <p>{humidity}</p>
+            </div>
+            <div>
+                <p>{prob}</p>
+            </div>
         </div>
        
     );
