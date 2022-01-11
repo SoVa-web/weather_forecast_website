@@ -1,9 +1,15 @@
 .content{
     width: 84%;
     height: inherit;
-    margin-left: 8%;
-    margin-right: 8%;
+    margin-left: auto;
+    margin-right: auto;
     background-color: #F1F1F1;
     border-radius: 26px;
   }
   
+
+@media all and (max-width: 600px){
+  .content{
+    width: 100%;
+  }
+}

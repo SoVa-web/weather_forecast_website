@@ -5,6 +5,7 @@ import cloudy from '../data/icon/cloudy.png'
 import moon_cloudy from '../data/icon/moon_cloudy.png'
 import moon from '../data/icon/moon.png'
 import storm from '../data/icon/storm.png'
+import fog from '../data/icon/fog.png'
 
 
 const map_alias = new Map<string, string>([
@@ -14,7 +15,8 @@ const map_alias = new Map<string, string>([
     ["rain", rain],
     ["moon", moon],
     ["moon_cloudy", moon_cloudy],
-    ["storm", storm]
+    ["storm", storm],
+    ["fog", fog]
 ]);
 
 
