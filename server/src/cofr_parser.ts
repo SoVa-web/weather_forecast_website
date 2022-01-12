@@ -39,11 +39,11 @@ class ChainOfResponsibility{
 }
 
 
-interface Parser{
+export interface Parser{
     parser(obj:any):Promise<object|undefined>;
 }
 
-abstract class Parser{
+export abstract class Parser{
     public parser_key:string;
     
 	constructor(parser_key:string){
@@ -52,7 +52,7 @@ abstract class Parser{
 
 } 
 
-class ParserVisualDay extends Parser{
+export class ParserVisualDay extends Parser{
     constructor(){
         super("visual_day")
     }
@@ -76,7 +76,7 @@ class ParserVisualDay extends Parser{
 }
 
 
-class ParserVisualWeek extends Parser{
+export class ParserVisualWeek extends Parser{
     constructor(){
         super("visual_week")
     }
@@ -98,7 +98,7 @@ class ParserVisualWeek extends Parser{
 
 
 
-class ParserWeatherAPIDay extends Parser{
+export class ParserWeatherAPIDay extends Parser{
     constructor(){
         super("weatherapi_day")
     }
@@ -121,7 +121,7 @@ class ParserWeatherAPIDay extends Parser{
     }
 }
 
-class ParserWeatherbitWeek extends Parser{
+export class ParserWeatherbitWeek extends Parser{
     constructor(){
         super("weatherbit_week")
     }

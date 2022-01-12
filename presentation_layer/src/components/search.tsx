@@ -22,9 +22,27 @@ function Search(){
     
 }
 
+const valid_characters:string = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm `''--"
 
 async function onclick_serch(){
-    await search_method()
+    const inputElement = document.getElementById('input_city') as HTMLInputElement
+    let in_text:string = inputElement.value;
+    let valid:boolean = false;
+    let do_search:boolean = true;
+    for (let i = 0; i < in_text.length; i++){
+        valid = false;
+        for (let k = 0; k < valid_characters.length; k++){
+            if (valid_characters[k] === in_text[i]) valid = true;
+        }
+        if (valid === false){
+            do_search = false;
+            alert("Ohhh, we think you entered an invalid character. Try to correct the mistakes in word.")
+            return
+        }
+    }
+    if (do_search === true){
+        await search_method()
+    }
 }
 
 

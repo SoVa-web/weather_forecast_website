@@ -4,10 +4,10 @@ import common_object from './template_obj';
 import ChainOfResponsibility from './cofr_parser'
 
 const MORNING_TIME: number = 6;
-const FOG = `Fog and limited visibility are expected. Be careful.`;
-const STORM  = `Storm warning. Perhaps with a downpour.`;
-const HIGH_TEMP = `High temperature is dangerous for human health. People with chronic heart disease should refrain from being outside.`
-const NICE_DAY = "It`s a nice day! It`s time for big things to do!"
+export const FOG = `Fog and limited visibility are expected. Be careful.`;
+export const STORM  = `Storm warning. Perhaps with a downpour.`;
+export const HIGH_TEMP = `High temperature is dangerous for human health. People with chronic heart disease should refrain from being outside.`
+export const NICE_DAY = "It`s a nice day! It`s time for big things to do!"
 
 async function Agregator(city:string){
     const fetch_builder = new FetchBuilder(city);
@@ -50,7 +50,7 @@ export function agregation(arr: any){
     return obj;
 }
 
-function generate_advice(obj:any, arr_hour:any){
+export function generate_advice(obj:any, arr_hour:any){
   let str_advice = NICE_DAY
   
   for (let i = 0; i < (arr_hour.length -1); i++){
@@ -72,7 +72,7 @@ function generate_advice(obj:any, arr_hour:any){
   return obj;
 }
 
-function avr_prob_week(arr: any, arr_week: Array<string>, i: number){
+export function avr_prob_week(arr: any, arr_week: Array<string>, i: number){
     let sum:number = 0
     let count: number = 0
     for(let j = 0; j < arr.length; j++){
@@ -85,7 +85,7 @@ function avr_prob_week(arr: any, arr_week: Array<string>, i: number){
     return sum/count
 }
 
-function avr_humidity_week(arr: any, arr_week: Array<string>, i: number){
+export function avr_humidity_week(arr: any, arr_week: Array<string>, i: number){
     let sum:number = 0
     let count: number = 0
     for(let j = 0; j < arr.length; j++){
@@ -111,7 +111,7 @@ export function avr_humidity_today(arr: any, arr_hour: Array<string>, i: number)
     return sum/count
 }
 
-function avr_speed_wind_week(arr: any, arr_week: Array<string>, i: number){
+export function avr_speed_wind_week(arr: any, arr_week: Array<string>, i: number){
     let sum:number = 0
     let count: number = 0
     for(let j = 0; j < arr.length; j++){
@@ -124,7 +124,7 @@ function avr_speed_wind_week(arr: any, arr_week: Array<string>, i: number){
     return sum/count
 }
 
-function avr_speed_wind_today(arr: any, arr_hour: Array<string>, i: number){
+export function avr_speed_wind_today(arr: any, arr_hour: Array<string>, i: number){
     let sum:number = 0
     let count: number = 0
     for(let j = 0; j < arr.length; j++){
@@ -137,7 +137,7 @@ function avr_speed_wind_today(arr: any, arr_hour: Array<string>, i: number){
     return sum/count
 }
 
-function get_data_week(arr: any, arr_days: Array<string>, i: number){
+export function get_data_week(arr: any, arr_days: Array<string>, i: number){
     for(let j = 0; j < arr.length; j++){
         if (arr[j].weather_week[arr_days[i]].data !== ""){
           return arr[j].weather_week[arr_days[i]].data;

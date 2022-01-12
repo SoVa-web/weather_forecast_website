@@ -1,4 +1,4 @@
-import {most_often} from '../agregation';
+import {generate_advice, most_often} from '../agregation';
 import FetchBuilder from '../fetch_builder';
 import ChainOfResponsibility from '../cofr_parser';
 import { agregation } from '../agregation';
@@ -8,6 +8,8 @@ import {avr_temp_today} from '../agregation';
 import Agregator from '../agregation';
 import {avr_humidity_today} from '../agregation';
 import {avr_item_icon_week} from '../agregation'
+import { HIGH_TEMP } from '../agregation';
+import { FOG } from '../agregation';
 
 
 const city:string = "London"
@@ -71,7 +73,23 @@ describe('Aggregate function tests', () => {
         expect(typeof(Agregator(city))).toEqual("object")
     })
 
+    it('Test Agregator with wrong city', async ()=>{
+        expect(await Agregator(city_no_valid).then(f => {return f;})).toEqual({})
+    })
 
+    it('Test get_advice if temp is high', async ()=>{
+        let obj:any = JSON.parse(JSON.stringify(common_object))
+        let arr_h:any = Array.from(Object.keys(obj.weather_today))
+        obj.weather_today["00:00:00"].air_temp = "44 °C"
+        expect(generate_advice(obj, arr_h).weather_today.today_advice).toEqual(HIGH_TEMP)
+    })
+
+    it('Test get_advice if fog', async ()=>{
+        let obj:any = JSON.parse(JSON.stringify(common_object))
+        let arr_h:any = Array.from(Object.keys(obj.weather_today))
+        obj.weather_today["00:00:00"].img = "fog"
+        expect(generate_advice(obj, arr_h).weather_today.today_advice).toEqual(FOG)
+    })
 })
 
 describe('Test of fetch builder', ()=>{
