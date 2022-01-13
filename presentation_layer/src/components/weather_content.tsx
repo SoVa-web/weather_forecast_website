@@ -7,8 +7,8 @@ function WeatherContent(){
         <div className="block-weather">
             <div id="weather-content" className="weather-content">
                 <div style={{display: 'flex'}}>
-                    <button className="today" onClick={onclickToday}>Today</button>
-                    <button className="week" onClick={onclickWeek}>Week</button>
+                    <button id="t" className="today" style={{pointerEvents:'none'}}  onClick={onclickToday}>Today</button>
+                    <button id="w" className="week" style={{pointerEvents:'none'}} onClick={onclickWeek}>Week</button>
                 </div>
                 <div id="motto" className="motto" style={{'alignItems':'center', 'display':'block'}}>
                     <p>The weather is no reason to be sad</p>

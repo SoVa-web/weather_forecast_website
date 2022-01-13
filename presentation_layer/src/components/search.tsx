@@ -41,6 +41,10 @@ async function onclick_serch(){
         }
     }
     if (do_search === true){
+        let t = document.getElementById('t')
+        if ( t !== null) t.style.pointerEvents = 'auto'
+        let w = document.getElementById('w')
+        if ( w !== null) w.style.pointerEvents = 'auto'
         await search_method()
     }
 }
