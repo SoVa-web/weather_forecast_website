@@ -58,14 +58,13 @@ const search_method = async  ()=>{
     ReactDom.render(<p>{city_name_en}</p>,document.getElementById('city_name'))
 
     
-    await fetch(`https://weathersovaappp.herokuapp.com/`, {
+    await fetch(`https://weathersovaappp.herokuapp.com/weather?city=${in_text}`, {
         mode: 'cors',
-        method: 'POST',
+        method: 'GET',
         headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({city:in_text})
+        }
     })
     .then(response => {
        return response.json()
