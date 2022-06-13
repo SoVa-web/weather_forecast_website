@@ -24,7 +24,12 @@ async function Agregator(city:string){
         return created_pred;
     }catch(err){
         console.log(err)
-        return {};
+        return {
+          error: "true",
+          possible_solutions: ["No data found for this region. Try another variant of the region name;", 
+                              "The monthly limit of inquiries to all data providers has been exhausted. We apologize for the inconvenience"],
+          text_error: err
+        };
     }
 }
 

@@ -13,6 +13,11 @@ function Footer() {
                <a href="mailto:olha.suprun.w@gmail.com"><img className="icon-contact" src={gmail} alt="gmail"></img></a>
                <a href="https://github.com/SoVa-web"><img className="icon-contact" src={github_dark} alt="github"></img></a>
            </div>
+            <a href="https://weathersovaappp.herokuapp.com/">
+              <h2 className="apidocumentation">
+              API Documentation
+              </h2>
+            </a>
       </div>
         
     );
