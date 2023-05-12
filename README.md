@@ -138,8 +138,6 @@ Weather forecast website by aggregating Hydrometeorological Center data
 
 Page: https://frontendweathersova.herokuapp.com
 
-Start page layout: https://www.figma.com/file/E2KPRyrInFOsSyBOoRx99C/Untitled?node-id=0%3A1
-
 
 The APIs of these sites are used to extract and aggregate data:
 - https://weather.visualcrossing.com (for day and for week forecast weather)
